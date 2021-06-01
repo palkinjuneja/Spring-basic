@@ -6,22 +6,32 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!--  Load the Properties file -->
+    <context:property-placeholder location="classpath:sports.properties"/>
 
     <!-- Define your beans here -->
     
     <bean id ="myFortuneService"
     	class ="com.basicPackage.HappyFortuneService">
-    	</bean>
+    </bean>
     
     <bean id ="MyCoach"
     	class ="com.basicPackage.TrackCoach">
+    	
+    	<!-- Constructor Dependency Injection -->
     	<constructor-arg ref="myFortuneService"/>
     </bean>
+    
     <bean id ="MyCricketCoach"
     	class="com.basicPackage.CricketCoach">
+    	
+    	<!-- Setter Dependency Injection -->
     	<property name="fortuneService" ref ="myFortuneService" />
-    	<property name="emailAddress" value="cricketCoach@email.com"/>
-    	<property name="team" value="Delhi Daredevils"/>
+    	
+    	<!-- Literal Dependency Injection  -->
+    	<property name="emailAddress" value="${foo.email}"/>
+    	<property name="team" value="${foo.team}"/>
     </bean>
     
     <bean id="MyLogger" class="com.basicPackage.MyLogger" init-method="initLogger">
