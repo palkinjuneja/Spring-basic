@@ -9,8 +9,13 @@
 
     <!-- Define your beans here -->
     
+    <bean id ="myFortuneService"
+    	class ="com.basicPackage.HappyFortuneService">
+    	</bean>
+    
     <bean id ="MyCoach"
-    	class ="com.basicPackage.BadmintonCoach">
+    	class ="com.basicPackage.TrackCoach">
+    	<constructor-arg ref="myFortuneService"/>
     </bean>
     
     <bean id="MyLogger" class="com.basicPackage.MyLogger" init-method="initLogger">
