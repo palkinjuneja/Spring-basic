@@ -20,6 +20,8 @@
     <bean id ="MyCricketCoach"
     	class="com.basicPackage.CricketCoach">
     	<property name="fortuneService" ref ="myFortuneService" />
+    	<property name="emailAddress" value="cricketCoach@email.com"/>
+    	<property name="team" value="Delhi Daredevils"/>
     </bean>
     
     <bean id="MyLogger" class="com.basicPackage.MyLogger" init-method="initLogger">
